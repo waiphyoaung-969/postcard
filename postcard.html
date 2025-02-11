@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Postcard</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe6e6;
+            font-family: Arial, sans-serif;
+        }
+        .card {
+            width: 300px;
+            height: 500px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+        .heart {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-45deg);
+            animation: heartbeat 1s infinite;
+        }
+        .heart::before,
+        .heart::after {
+            content: "";
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .heart::before {
+            top: -25px;
+            left: 0;
+        }
+        .heart::after {
+            left: 25px;
+            top: 0;
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: translateX(-50%) rotate(-45deg) scale(1); }
+            50% { transform: translateX(-50%) rotate(-45deg) scale(1.2); }
+        }
+        .photo-box {
+            width: 120px;
+            height: 120px;
+            border: 3px solid #d63384;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px auto;
+            padding: 5px;
+            background-color: #fff;
+        }
+        .photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 8px;
+           
+            object-fit: contain;
+        }
+        .message {
+            font-size: 18px;
+            color: #d63384;
+        }
+        .play-button {
+            background-color: #d63384;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        .play-button:hover {
+            background-color: #b12a6e;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="heart"></div>
+        <div class="photo-box">
+            <img src="scarlett.jpg" alt="Scarlett's pic" class="photo">
+        </div>
+        <h2>Happy Valentine's Day!</h2>
+        <p class="message">Wishing you to be happy in your life!</p>
+        <p>I'm sorry for everything.</p>
+        <p>You are the beloved girl of my life</p>
+        <button class="play-button" onclick="playMusic()">Play this Song 🎶</button>
+        <audio id="bg-music">
+            <source src="Lauv - Steal The Show (From Elemental).mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    <script>
+        function playMusic() {
+            let audio = document.getElementById('bg-music');
+            audio.play().catch(error => {
+                console.log("Playback failed: " + error);
+            });
+        }
+    </script>
+</body>
+</html>
+ 
+ 
